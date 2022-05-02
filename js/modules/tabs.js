@@ -29,7 +29,7 @@ function tabs() {
 
     if (target && target.classList.contains('tabheader__item')) {
       tabs.forEach((item, index) => {
-        if (target == item) {
+        if (target === item) {
           hideTabContent();
           showTabContent(index);
         }
@@ -38,4 +38,4 @@ function tabs() {
   });
 }
 
-module.exports = tabs;
+export default tabs;

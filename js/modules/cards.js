@@ -10,10 +10,10 @@ function cards() {
       this.parent = document.querySelector(parentSelector);
       this.classes = classes;
       this.transfer = 27;
-      this.changetoUAH();
+      this.changeToUAH();
     }
 
-    changetoUAH() {
+    changeToUAH() {
       this.price = this.price * this.transfer;
     }
 
@@ -41,15 +41,15 @@ function cards() {
     }
   }
 
-  const getResource = async (url) => {
-    const result = await fetch(url);
-
-    if (!result.ok) {
-      throw new Error(`Could not fetch ${url}, statusL ${result.status}`);
-    }
-
-    return await result.json();
-  }
+  // const getResource = async (url) => {
+  //   const result = await fetch(url);
+  //
+  //   if (!result.ok) {
+  //     throw new Error(`Could not fetch ${url}, statusL ${result.status}`);
+  //   }
+  //
+  //   return await result.json();
+  // }
 
   // getResource('http://localhost:3000/menu')
   //   .then(data => {
@@ -68,4 +68,4 @@ function cards() {
     });
 }
 
-module.exports = cards;
+export default cards;

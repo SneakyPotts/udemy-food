@@ -1,14 +1,15 @@
+import tabs from './modules/tabs';
+import modal from './modules/modal';
+import timer from './modules/timer';
+import cards from './modules/cards';
+import calc from './modules/calc';
+import forms from './modules/forms';
+import slider from './modules/slider';
+
 window.addEventListener('DOMContentLoaded', function () {
-  const tabs = require('./modules/tabs');
-  const modal = require('./modules/modal');
-  const timer = require('./modules/timer');
-  const cards = require('./modules/cards');
-  const calc = require('./modules/calc');
-  const forms = require('./modules/forms');
-  const slider = require('./modules/slider');
 
   tabs();
-  modal();
+  modal('[data-modal]', '.modal');
   timer();
   cards();
   calc();
