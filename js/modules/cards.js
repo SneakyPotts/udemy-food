@@ -1,5 +1,6 @@
+import {getResource} from "../services/services";
+
 function cards() {
-  //Классы для карточек
   class MenuCard {
     constructor(src, alt, title, description, price, parentSelector = ".menu .container", ...classes) {
       this.src = src;
@@ -41,31 +42,21 @@ function cards() {
     }
   }
 
-  // const getResource = async (url) => {
-  //   const result = await fetch(url);
-  //
-  //   if (!result.ok) {
-  //     throw new Error(`Could not fetch ${url}, statusL ${result.status}`);
-  //   }
-  //
-  //   return await result.json();
-  // }
-
-  // getResource('http://localhost:3000/menu')
-  //   .then(data => {
-  //     data.forEach(({img, altimg, title, descr, price}) => {
-  //       new MenuCard(img, altimg, title, descr, price).render();
-  //     });
-  //   })
-
-
-  //axios
-  axios.get('http://localhost:3000/menu')
-    .then(response => {
-      response.data.forEach(({img, altimg, title, descr, price}) => {
+  getResource('http://localhost:3000/menu')
+    .then(data => {
+      data.forEach(({img, altimg, title, descr, price}) => {
         new MenuCard(img, altimg, title, descr, price).render();
       });
-    });
+    })
+
+
+  // axios
+  // axios.get('http://localhost:3000/menu')
+  //   .then(response => {
+  //     response.data.forEach(({img, altimg, title, descr, price}) => {
+  //       new MenuCard(img, altimg, title, descr, price).render();
+  //     });
+  //   });
 }
 
 export default cards;

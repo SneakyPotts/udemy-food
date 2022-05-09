@@ -1,24 +1,12 @@
 import { closeModal, openModal } from './modal';
+import { postData } from '../services/services.js'
 
-function forms() {
-  //формы
-  const forms = document.querySelectorAll('form');
+function forms(formSelector, modalTimerId) {
+  const forms = document.querySelectorAll(formSelector);
   const mess = {
     loading: 'img/icons/spinner.svg',
     success: 'Спасибо, ты молодец!',
     failure: 'Что-то пошло не так...'
-  }
-
-  const postData = async (url, data) => {
-    const result = await fetch(url, {
-      method: "POST",
-      headers: {
-        'Content-type': 'application/json',
-      },
-      body: data,
-    });
-
-    return await result.json();
   }
 
   let bindPostData = function (form) {
@@ -58,7 +46,7 @@ function forms() {
     const prevModalDialog = document.querySelector('.modal__dialog');
 
     prevModalDialog.classList.add('hide');
-    openModal();
+    openModal('.modal', modalTimerId);
 
     const thanksModal = document.createElement('div');
     thanksModal.className = 'modal__dialog';
@@ -75,7 +63,7 @@ function forms() {
       thanksModal.remove();
       prevModalDialog.classList.add('show');
       prevModalDialog.classList.remove('hide');
-      closeModal();
+      closeModal('.modal');
     }, 4000);
   }
 }
