@@ -1,5 +1,4 @@
 function calc() {
-  //Калькулятор
   const result = document.querySelector('.calculating__result span');
   let sex = localStorage.getItem('sex') ? localStorage.getItem('sex') : 'female',
     height,
